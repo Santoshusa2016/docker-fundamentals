@@ -46,7 +46,8 @@ namespace Globomantics.Api
         }
 
         public void Configure(IApplicationBuilder app, IApiVersionDescriptionProvider provider)
-        {            
+        {
+            //Santo: Api path for domain configuration
             var virtualPath = "/api";
             app.Map(virtualPath, builder =>
             {
@@ -54,6 +55,7 @@ namespace Globomantics.Api
                
                 builder.UseForwardedHeaders(new ForwardedHeadersOptions
                 {
+                    //Santo: unlike other proj the network/proxies are not cleared to support swashbuckle
                     ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
                 });
                 

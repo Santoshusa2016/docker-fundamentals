@@ -126,6 +126,8 @@ namespace Globomantics.IdentityServer
             app.ApplyDatabaseSchema();
             app.PopulateDatabaseIfEmpty();
 
+
+            //headers forwarded by nginx
             var forwardedHeaderOptions = new ForwardedHeadersOptions
             {
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
